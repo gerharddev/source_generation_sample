@@ -1,6 +1,7 @@
 ﻿using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.CodeAnalysis.Text;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 
@@ -39,7 +40,7 @@ namespace Generators
                     //Build the code for the DTO
                     sourceBuilder.Append($@"
 
-namespace GeneratedMappers
+namespace GeneratedTypes
 {{
     public class {genClassName}
     {{
@@ -47,7 +48,7 @@ namespace GeneratedMappers
                     sourceBuilder.AppendLine(splitClass[1].Replace(className, genClassName));
                     sourceBuilder.AppendLine("}");
                     //Generate the source text
-                    context.AddSource($"MapperGenerator_{genClassName}", SourceText.From(sourceBuilder.ToString(), Encoding.UTF8));
+                    context.AddSource($"Generated_{genClassName}", SourceText.From(sourceBuilder.ToString(), Encoding.UTF8));
                 }
             }
         }

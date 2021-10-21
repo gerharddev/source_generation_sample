@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-
+using GeneratedTypes;
 
 namespace SampleApi.Controller
 {
@@ -8,12 +8,11 @@ namespace SampleApi.Controller
     public class PartsController : ControllerBase
     {
 
-
-        //[HttpPost]
-        //public IActionResult CreatePart([FromBody] PartDto part)
-        //{
-        //    var test = part.Name;
-        //    return Ok("Part added");
-        //}
+        [HttpPost]
+        public IActionResult CreatePart([FromBody] PartDto part)
+        {
+            //TODO: Add the part 
+            return Ok("Part added");
+        }
     }
 }

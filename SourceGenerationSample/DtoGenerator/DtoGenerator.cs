@@ -48,7 +48,7 @@ namespace GeneratedTypes
                     sourceBuilder.AppendLine(splitClass[1].Replace(className, genClassName));
                     sourceBuilder.AppendLine("}");
                     //Generate the source text
-                    context.AddSource($"Generated_{genClassName}", SourceText.From(sourceBuilder.ToString(), Encoding.UTF8));
+                    context.AddSource(genClassName, SourceText.From(sourceBuilder.ToString(), Encoding.UTF8));
                 }
             }
         }
